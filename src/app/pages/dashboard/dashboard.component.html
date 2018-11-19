@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="card">
+    <h3 class="title">List years with multiple winners</h3>
+    <ngx-datatable class="bootstrap" [rows]="moviesYearsWithMultipleWinners" [reorderable]="false" columnMode="force">
+      <ngx-datatable-column
+        *ngFor="let column of columnsMoviesYearsWithMultipleWinners"
+        [sortable]="false"
+        [prop]="column.prop"
+        [name]="column.name"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+  <div class="card">
+    <h3 class="title">Top 3 studios with winners</h3>
+    <ngx-datatable class="bootstrap" columnMode="force" [rows]="moviesWithWinCount" [reorderable]="false">
+      <ngx-datatable-column
+        *ngFor="let column of columnsMoviesWithWinCount"
+        [sortable]="false"
+        [prop]="column.prop"
+        [name]="column.name"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card">
+    <h3 class="title">Producers with longest and shortest interval between wins</h3>
+    <p class="subtitle">Maximum</p>
+    <ngx-datatable
+      class="bootstrap"
+      columnMode="force"
+      [rows]="maxMinWinIntervalForProducer?.max"
+      [reorderable]="false"
+    >
+      <ngx-datatable-column
+        *ngFor="let column of columnsMaxMinWinIntervalForProducer"
+        [sortable]="false"
+        [prop]="column.prop"
+        [name]="column.name"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+    <p class="subtitle">Minimun</p>
+    <ngx-datatable
+      class="bootstrap"
+      columnMode="force"
+      [rows]="maxMinWinIntervalForProducer?.min"
+      [reorderable]="false"
+    >
+      <ngx-datatable-column
+        *ngFor="let column of columnsMaxMinWinIntervalForProducer"
+        [sortable]="false"
+        [prop]="column.prop"
+        [name]="column.name"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+  <div class="card">
+    <h3 class="title">List movies winners by year</h3>
+    <form [formGroup]="form" (ngSubmit)="search()" novalidate>
+      <input type="number" formControlName="year" /> <button type="submit">Search</button>
+    </form>
+    <ngx-datatable class="bootstrap" columnMode="force" [rows]="moviesWinnersByYear" [reorderable]="false">
+      <ngx-datatable-column
+        *ngFor="let column of columnsMoviesWinnersByYear"
+        [sortable]="false"
+        [prop]="column.prop"
+        [name]="column.name"
+      >
+      </ngx-datatable-column>
+    </ngx-datatable>
+  </div>
+</div>

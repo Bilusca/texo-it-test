@@ -1,0 +1,45 @@
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  .card {
+    box-sizing: border-box;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: 1px solid #dedede;
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    .title {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    .subtitle {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+  background: tomato !important;
+}
+
+@media screen and (max-width: 1280px) {
+  .row {
+    flex-direction: column;
+    margin-bottom: 0;
+    .card {
+      margin-bottom: 15px;
+    }
+  }
+}
