@@ -1,3 +1,31 @@
-<p>
-  list works!
-</p>
+<div class="card">
+  <ngx-datatable class="bootstrap" columnMode="force" [rows]="movies" [reorderable]="false">
+    <ngx-datatable-column
+      *ngFor="let column of columnsMovies"
+      [sortable]="false"
+      [prop]="column.prop"
+      [name]="column.name"
+    >
+      <ng-template
+        *ngIf="column.prop === 'year'"
+        let-column="column"
+        ngx-datatable-header-template
+      >
+        {{ column.name }} <br />
+        <input type="number" name="year" [(ngModel)]="year" />
+      </ng-template>
+      <ng-template
+        *ngIf="column.prop === 'winner'"
+        let-column="column"
+        ngx-datatable-header-template
+      >
+        {{ column.name }} <br />
+        <select name="winner" [(ngModel)]="winner">
+          <option value="" selected>Yes/No</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

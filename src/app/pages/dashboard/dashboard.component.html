@@ -61,7 +61,7 @@
   </div>
   <div class="card">
     <h3 class="title">List movies winners by year</h3>
-    <form [formGroup]="form" (ngSubmit)="search()" novalidate>
+    <form [formGroup]="form" class="search" (ngSubmit)="search()" novalidate>
       <input type="number" formControlName="year" /> <button type="submit">Search</button>
     </form>
     <ngx-datatable class="bootstrap" columnMode="force" [rows]="moviesWinnersByYear" [reorderable]="false">

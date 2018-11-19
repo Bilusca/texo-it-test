@@ -24,4 +24,8 @@ export class MoviesService {
   getMoviesWinnersByYear(year) {
     return this.http.get(`${API.baseUrl}?winner=true&year=${year}`);
   }
+
+  moviesList() {
+    return this.http.get(`${API.baseUrl}?page=9&size=99&winner=true&year=2018`);
+  }
 }
