@@ -56,3 +56,18 @@ table {
 * {
   font-family: 'Open Sans', sans-serif;
 }
+
+.ngx-datatable.bootstrap .datatable-body .datatable-body-row .datatable-body-cell {
+  padding: 0.3rem;
+  border: 1px solid #cecece;
+}
+
+.ngx-datatable.bootstrap .datatable-header .datatable-header-cell {
+  padding: 0.3rem;
+  border: 1px solid #cecece;
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center !important;
+}

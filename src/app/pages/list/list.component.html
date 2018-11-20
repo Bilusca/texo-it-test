@@ -1,30 +1,39 @@
 <div class="card">
-  <ngx-datatable class="bootstrap" columnMode="force" [rows]="movies" [reorderable]="false">
+  <ngx-datatable
+    class="bootstrap"
+    columnMode="force"
+    [loadingIndicator]="loadingIndicator"
+    [rows]="movies"
+    [reorderable]="false"
+    [footerHeight]="50"
+    [externalPaging]="true"
+    [limit]="20"
+    [offset]="page"
+    [count]="count"
+    (page)="setPage($event)"
+  >
     <ngx-datatable-column
       *ngFor="let column of columnsMovies"
       [sortable]="false"
       [prop]="column.prop"
       [name]="column.name"
+      [resizeable]="false"
+      headerClass="text-center"
     >
-      <ng-template
-        *ngIf="column.prop === 'year'"
-        let-column="column"
-        ngx-datatable-header-template
-      >
+      <ng-template *ngIf="column.prop === 'year'" let-column="column" ngx-datatable-header-template>
         {{ column.name }} <br />
-        <input type="number" name="year" [(ngModel)]="year" />
+        <input type="number" id="year" name="year" [(ngModel)]="year" placeholder="Filter by Year" (ngModelChange)="onChangeYear($event)" />
       </ng-template>
-      <ng-template
-        *ngIf="column.prop === 'winner'"
-        let-column="column"
-        ngx-datatable-header-template
-      >
+      <ng-template *ngIf="column.prop === 'winner'" let-column="column" ngx-datatable-header-template>
         {{ column.name }} <br />
-        <select name="winner" [(ngModel)]="winner">
-          <option value="" selected>Yes/No</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
+        <select name="winner" id="winner" [(ngModel)]="winner" (ngModelChange)="onChangeWinner($event)">
+          <option [value]="null" selected>Yes/No</option>
+          <option [value]="true">Yes</option>
+          <option [value]="false">No</option>
         </select>
+      </ng-template>
+      <ng-template *ngIf="column.prop === 'winner'" let-value="value" ngx-datatable-cell-template>
+        <span *ngIf="value">Yes</span> <span *ngIf="!value">No</span>
       </ng-template>
     </ngx-datatable-column>
   </ngx-datatable>

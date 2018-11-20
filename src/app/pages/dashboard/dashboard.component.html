@@ -7,6 +7,7 @@
         [sortable]="false"
         [prop]="column.prop"
         [name]="column.name"
+        [resizeable]="false"
       >
       </ngx-datatable-column>
     </ngx-datatable>
@@ -19,6 +20,7 @@
         [sortable]="false"
         [prop]="column.prop"
         [name]="column.name"
+        [resizeable]="false"
       >
       </ngx-datatable-column>
     </ngx-datatable>
@@ -40,6 +42,7 @@
         [sortable]="false"
         [prop]="column.prop"
         [name]="column.name"
+        [resizeable]="false"
       >
       </ngx-datatable-column>
     </ngx-datatable>
@@ -55,6 +58,7 @@
         [sortable]="false"
         [prop]="column.prop"
         [name]="column.name"
+        [resizeable]="false"
       >
       </ngx-datatable-column>
     </ngx-datatable>
@@ -62,7 +66,7 @@
   <div class="card">
     <h3 class="title">List movies winners by year</h3>
     <form [formGroup]="form" class="search" (ngSubmit)="search()" novalidate>
-      <input type="number" formControlName="year" /> <button type="submit">Search</button>
+      <input type="number" formControlName="year" placeholder="Filter by Year" /> <button type="submit">Search</button>
     </form>
     <ngx-datatable class="bootstrap" columnMode="force" [rows]="moviesWinnersByYear" [reorderable]="false">
       <ngx-datatable-column

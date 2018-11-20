@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 export class HttpsRequestInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const dupReq = req.clone({
-      headers: req.headers.set('Access-Control-Allow-Origin', '*')
+      headers: req.headers.set('Access-Control-Allow-Origin', 'http://localhost:4200')
     });
     return next.handle(dupReq);
   }
